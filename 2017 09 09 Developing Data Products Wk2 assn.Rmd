@@ -1,0 +1,41 @@
+---
+title: "Developing Data Productions AS2 map"
+author: "Brian Gue"
+date: "September 9, 2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+This is an R Markdown document, as required in the assignment. Rather than building it from the ground up, I used the templating that RStudio provides. 
+
+## Including Plots
+The second part of the assignment is to create a map. A few of my favourite places are marked on this map.
+
+
+```{r leaflet}
+library(maps)
+library(leaflet)
+
+#We create a leaflet object and add a whole bunch of markers sequentially to it.  
+m <- leaflet() %>% 
+  addTiles() %>%  
+  addMarkers(lat=59.4, lng=24.75, popup="Talinn, the capital of Estonia") %>%
+  addMarkers(lat=53.5239773,lng=-113.5131256, popup="The Sugarbowl, a fine place to stop by") %>%
+  addMarkers(lat=53.1106,lng=-119.1508, popup="Mt. Robson, the highest peak in the Canadian Rockies. Well worth exploring") %>%
+  addMarkers(	lat=52.2478745,lng=-117.2287932, popup="Wilcox Pass, a challenging and beautiful climb far above the treelines. Great viewlines into the glacial fields.") %>%
+  addMarkers(	lat=49.52126545,lng=-124.674201877016, popup="Hornby Island, one of the most diverse places I've seen.")
+m # call the leaflet object to display
+```
+
+Note that the maps library is imported but not used in the final submission. It contains coordinates for geographical features (like political boundaries).
+
+In order to find the geo-coordinates of these locations, I used the Open Street Map location database called Nominatim. It's available at http://nominatim.openstreetmap.org  
+
+
+End of submission.
